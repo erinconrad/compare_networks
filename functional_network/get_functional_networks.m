@@ -139,6 +139,7 @@ for s = first_zeros:size(sp_windows,1)
         
         %% Get EEG signal
         ieeg_name = pt(whichPt).ieeg_name;
+        error('look\n');
         data = get_eeg_data(ieeg_name,indices,loginname,pwname);
         values = data.values;
         ch_labels = data.ch_labels(:,1);
