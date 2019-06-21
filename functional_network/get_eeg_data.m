@@ -9,7 +9,8 @@ while n == 0
         values = session.data.getvalues(indices,':');
         fs = session.data.sampleRate;
         n = 1; 
-    catch    
+    catch  
+        error('what\n');
         fprintf('Failed to retrieve ieeg.org data, trying again...\n');        
     end
     
