@@ -39,6 +39,8 @@ loginname = 'erinconr';
 pwname = locations.pwfile;
 mscohere_folder = locations.mscohere_folder;
 addpath(genpath(mscohere_folder));
+ieeg_folder = locations.ieeg_folder;
+addpath(genpath(ieeg_folder));
 
 
 %% Load pt structure
