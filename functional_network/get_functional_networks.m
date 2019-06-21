@@ -30,7 +30,7 @@ freq_bands = [0 256;... %broadband
 locations = comp_nets_files;
 main_folder = locations.main_folder;
 data_folder = [main_folder,'data/'];
-script_folder = [main_folder,'scripts/'];
+script_folder = locations.script_folder;
 addpath(genpath(script_folder));
 spike_struct_folder = locations.spike_struct_folder;
 results_folder = [main_folder,'results/'];
