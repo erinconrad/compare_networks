@@ -43,6 +43,7 @@ locs = pt(whichPt).new_elecs.locs;
 
 % Plot stuff
 figure
+set(gcf,'position',[44 396 1397 402])
 subplot(1,3,1)
 imagesc(adj_freq)
 
