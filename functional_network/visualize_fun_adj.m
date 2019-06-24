@@ -31,6 +31,10 @@ out = out.out;
 
 adj_freq = out.adj(which_freq).which_adj(which_time).data;
 
+%% Remove columns with imaginary numbers
+[~,c] = find(imag(adj_freq)~=0);
+adj_freq(:,c) = [];
+
 %% Get the average
 adj_avg = mean(adj_freq,2);
 adj_avg = flatten_or_expand_adj(adj_avg);

@@ -74,7 +74,7 @@ sp_windows = [sp_times - repmat(window/2,length(n_spikes),1),...
 if exist(out_file,'file') == 0
     out.name = name;
     out.fs = fs;
-    out.elec_data = pt(whichPt).electrodeData;
+    out.elec_data = pt(whichPt).new_elecs;
     out.adj(1).name = 'broadband';
     out.adj(1).band = freq_bands(1,:);
     out.adj(2).name = 'alpha_theta';
@@ -165,6 +165,10 @@ for s = first_zeros:size(sp_windows,1)
         % Confirm they line up with elec labels
         if isequal(ch_labels,pt(whichPt).new_elecs.names) == 0
             error('what\n');
+        end
+        
+        if 0
+            table(ch_labels,pt(whichPt).new_elecs.names)
         end
         
         % optional example plot

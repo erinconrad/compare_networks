@@ -86,7 +86,7 @@ out.name = pt(whichPt).name;
 out.fs = pt(whichPt).fs;
 out.coA = coA;
 out.times = times;
-out.elecs = pt.electrodeData;
+out.elecs = pt(whichPt).electrodeData;
 out.seq_matrix = seq_matrix;
 out.total_ch_counts = total_ch_counts;
 
