@@ -8,6 +8,7 @@ To do:
 %}
 
 %% Parameters
+do_car = 0;
 do_pre_whiten = 0;
 do_notch = 0;
 do_hp = 0;
@@ -59,7 +60,11 @@ pt_folder = [adj_folder,name,'/'];
 if exist(pt_folder,'dir') == 0
     mkdir(pt_folder)
 end
-out_file = [pt_folder,'adj_',sprintf('%s',name),'.mat'];
+if do_car == 1
+    out_file = [pt_folder,'adj_',sprintf('%s',name),'.mat'];
+else
+    out_file = [pt_folder,'adj_',sprintf('%s',name),'_nocar.mat'];
+end
 
 %% Get spike times
 n_spikes = length(sp_times);
@@ -186,8 +191,10 @@ for s = first_zeros:size(sp_windows,1)
         %% Perform pre-processing
         
         % Do common average reference
-        avg_ref = nanmean(values,2);
-        values = values - avg_ref;
+        if do_car == 1
+            avg_ref = nanmean(values,2);
+            values = values - avg_ref;
+        end
         
         % Various filters
         for i = 1:size(values,2)
