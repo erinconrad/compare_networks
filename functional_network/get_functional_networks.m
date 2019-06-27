@@ -214,8 +214,8 @@ for s = first_zeros:size(sp_windows,1)
             values = pre_whiten(values);
         end
         
-        % optional example to plot
-        if 1
+        % opional example to plot
+        if 0
             ex_ch = 20;
             figure
             plot(linspace(curr_window(1),curr_window(2),size(old_values,1)),...
@@ -235,7 +235,7 @@ for s = first_zeros:size(sp_windows,1)
         adj = calc_fun_adj(values,fs,freq_bands);
         
         % optional plot
-        if 1
+        if 0
             figure
             imagesc(adj(1).adj)
             pause
