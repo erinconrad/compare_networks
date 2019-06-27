@@ -1,4 +1,4 @@
-function seq_matrix = get_seqs(whichPt)
+function [seq_matrix,all_times_all,all_spikes] = get_seqs(whichPt)
 
 %% File path
 locations = spike_network_files;
@@ -143,5 +143,8 @@ new_seq_matrix(:,removeSeq==1) = [];
 seq_matrix = new_seq_matrix;
 
 fprintf('%d sequences remain\n',size(seq_matrix,2));
+
+all_times_all(bad_idx) = [];
+all_spikes(bad_idx) = [];
 
 end

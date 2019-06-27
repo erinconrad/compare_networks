@@ -8,7 +8,7 @@ To do:
 %}
 
 %% Parameters
-do_car = 0;
+do_car = 1;
 do_pre_whiten = 0;
 do_notch = 0;
 do_hp = 0;
@@ -178,7 +178,7 @@ for s = first_zeros:size(sp_windows,1)
         
         % optional example plot
         if 0
-            ex_ch = 20;
+            ex_ch = 5;
             figure
             plot(linspace(curr_window(1),curr_window(2),size(values,1)),...
                 values(:,ex_ch))
@@ -215,7 +215,7 @@ for s = first_zeros:size(sp_windows,1)
         end
         
         % optional example to plot
-        if 0
+        if 1
             ex_ch = 20;
             figure
             plot(linspace(curr_window(1),curr_window(2),size(old_values,1)),...
@@ -235,7 +235,7 @@ for s = first_zeros:size(sp_windows,1)
         adj = calc_fun_adj(values,fs,freq_bands);
         
         % optional plot
-        if 0
+        if 1
             figure
             imagesc(adj(1).adj)
             pause

@@ -1,9 +1,10 @@
 function comp_nets(whichPts)
 
 %{
-NEED TO FIX THE ELECTRODE DATA FOR FUNCTIONAL NETWORKS FOR HUP70-HUP80
-- need to copy files from my computer to Borel
+
 %}
+
+which_file = 1;
 
 %% File path
 locations = comp_nets_files;
@@ -28,7 +29,11 @@ for whichPt = whichPts
     %% Get functional network
     name = pt(whichPt).name;
     pt_folder = [adj_folder,name,'/'];
-    adj_file = [pt_folder,'adj_',sprintf('%s',name),'.mat'];
+    if which_file == 1
+        adj_file = [pt_folder,'adj_',sprintf('%s',name),'.mat'];
+    else
+        adj_file = [pt_folder,'adj_',sprintf('%s',name),'_nocar.mat'];
+    end
     out = load(adj_file);
     fun_net = out.out;
     
