@@ -90,6 +90,7 @@ if exist(out_file,'file') == 0
     out.adj(4).band = freq_bands(4,:);
     out.adj(5).name = 'high_gamma';
     out.adj(5).band = freq_bands(5,:);
+    out.times = zeros(n_spikes,1);
     for i = 1:length(out.adj)
         out.adj(i).which_adj(1).data = zeros(nchs*(nchs-1)/2,n_spikes);
         out.adj(i).which_adj(2).data = zeros(nchs*(nchs-1)/2,n_spikes);
@@ -241,6 +242,9 @@ for s = first_zeros:size(sp_windows,1)
             pause
             close(gcf)
         end
+        
+        % Save the times
+        out.times(s) = sp_times(s);
         
         % Flatten the adjacency matrices for storage
         for f = 1:length(adj)
