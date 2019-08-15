@@ -88,6 +88,8 @@ for whichPt = whichPts
     
     locs = sp_locs;
     
+    %% Get the times for the functional networks
+    
     
     
 end
