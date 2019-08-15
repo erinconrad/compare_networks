@@ -2,7 +2,7 @@ function [coA,times,counts] = find_coactivation(window,time_thresh,all_times_all
 
 nbins = ceil((all_times_all(end)-all_times_all(1))/window);
 coA = zeros(nbins,nchs*(nchs-1)/2);
-times = zeros(nbins,1);
+times = zeros(nbins,2);
 counts = zeros(nbins,nchs);
 
 % Loop through and find coactivated channels
@@ -10,7 +10,7 @@ counts = zeros(nbins,nchs);
         
         % Get appropriate times
         curr_times = [all_times_all(1) + (tt-1)*window, min(all_times_all(1) + tt*window,all_times_all(end))];
-        times(tt) = curr_times(2);
+        times(tt,:) = curr_times;
         
         % Get appropriate spikes
         sp_idx = find(all_times_all >= curr_times(1) & all_times_all <= curr_times(2));

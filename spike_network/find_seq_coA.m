@@ -3,7 +3,7 @@ function [coA,times,total_ch_counts] = find_seq_coA(window,seq_matrix,nchs)
 first_time = min(seq_matrix,[],1);
 nbins = ceil((first_time(end)-first_time(1))/window);
 coA = zeros(nbins,nchs*(nchs-1)/2);
-times = zeros(nbins,1);
+times = zeros(nbins,2);
 counts = zeros(nbins,1);
 total_ch_counts = zeros(nbins,nchs);
 
@@ -13,7 +13,7 @@ for tt = 1:nbins
 
     % Get appropriate times
     curr_times = [first_time(1) + (tt-1)*window, min(first_time(1) + tt*window,first_time(end))];
-    times(tt) = curr_times(2);
+    times(tt,:) = curr_times;
 
     % Get appropriate spikes
     seq_idx = (first_time >= curr_times(1) & first_time <= curr_times(2));
